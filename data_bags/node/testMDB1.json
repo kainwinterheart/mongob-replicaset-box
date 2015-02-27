@@ -6,13 +6,14 @@
   "automatic": {
   },
   "normal": {
-	"fqdn": "testMDB1",
-  	"mongodb": {
-		"cluster_name": "testMDB",
-		"replicaset_name": "testMDB",
-		"is_replicaset": true,
-		"shard_name": "default"
-	}
+    "fqdn": "testMDB1",
+      "mongodb": {
+        "cluster_name": "testMDB",
+        "replicaset_name": "rs0",
+        "is_replicaset": true,
+        "is_shard": true,
+        "shard_name": "sh0"
+    }
   },
   "chef_type": "node",
   "default": {

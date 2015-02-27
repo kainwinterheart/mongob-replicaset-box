@@ -1,18 +1,16 @@
 {
-  "id": "testMDB2",
-  "name": "testMDB2",
+  "id": "testMDB5",
+  "name": "testMDB5",
   "chef_environment": "_default",
   "json_class": "Chef::Node",
   "automatic": {
   },
   "normal": {
-    "fqdn": "testMDB2",
+    "fqdn": "testMDB5",
       "mongodb": {
         "cluster_name": "testMDB",
-        "replicaset_name": "rs1",
-        "is_replicaset": true,
-        "is_shard": true,
-        "shard_name": "sh1"
+        "replicaset_name": "testMDB",
+        "shard_name": "testMDB"
     }
   },
   "chef_type": "node",
