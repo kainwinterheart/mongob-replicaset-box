@@ -10,11 +10,11 @@
       "mongodb": {
         "cluster_name": "testMDB",
         "sharded_collections": {
-            "moddb.mod_banners": { "uid": "hashed" },
-            "moddb.mod_phrases": { "uid": "hashed" },
-            "moddb.mod_sitelinks_sets": { "uid": "hashed" },
-            "moddb.mod_contactinfo": { "uid": "hashed" },
-            "moddb.mod_icons": { "uid": "hashed" }
+            "moddb.mod_banners": { "u": "hashed" },
+            "moddb.mod_phrases": { "u": "hashed" },
+            "moddb.mod_sitelinks_sets": { "u": "hashed" },
+            "moddb.mod_contactinfo": { "u": "hashed" },
+            "moddb.mod_icons": { "u": "hashed" }
         },
         "create_indexes": {
             "moddb.mod_banners": [
