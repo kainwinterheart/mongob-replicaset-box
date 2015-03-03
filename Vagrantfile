@@ -10,6 +10,7 @@ Vagrant.configure("2") do |config|
     testMDB3ip = "10.8.1.7"
     testMDB4ip = "10.8.1.8"
     testMDB5ip = "10.8.1.9"
+    testMDB6ip = "10.8.1.10"
 
     hostsfile_attrs = [
         {
@@ -31,6 +32,10 @@ Vagrant.configure("2") do |config|
         {
             "ip" => testMDB5ip,
             "host" => "testMDB5"
+        },
+        {
+            "ip" => testMDB6ip,
+            "host" => "testMDB6"
         }
     ]
 
@@ -147,6 +152,30 @@ Vagrant.configure("2") do |config|
             chef.node_name = config.vm.hostname
 
             chef.add_role "mongos"
+
+            chef.json = {
+                "hostsfile-attrs" => hostsfile_attrs
+            }
+        end
+    end
+
+    config.vm.define "sh3-master" do |config|
+
+        config.vm.box = "debian6"
+        config.vm.hostname = "testMDB6"
+        config.vm.box_url = box_url
+
+        config.vm.network "private_network", ip: testMDB6ip
+
+        config.vm.provision :chef_solo do |chef|
+
+            chef.cookbooks_path = "cookbooks"
+            chef.data_bags_path = "data_bags"
+            chef.roles_path = "roles"
+
+            chef.node_name = config.vm.hostname
+
+            chef.add_role "mongodb_shard"
 
             chef.json = {
                 "hostsfile-attrs" => hostsfile_attrs
