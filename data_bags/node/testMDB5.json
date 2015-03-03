@@ -8,9 +8,7 @@
   "normal": {
     "fqdn": "testMDB5",
       "mongodb": {
-        "cluster_name": "testMDB",
-        "replicaset_name": "testMDB",
-        "shard_name": "testMDB"
+        "cluster_name": "testMDB"
     }
   },
   "chef_type": "node",

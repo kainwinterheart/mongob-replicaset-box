@@ -3,7 +3,7 @@
 
 Vagrant.configure("2") do |config|
 
-    box_url = "http://127.0.0.1/~gennadiy/squeeze_x64.box"
+    box_url = "http://127.0.0.1:9028/js/squeeze_x64.box"
 
     testMDB1ip = "10.8.1.5"
     testMDB2ip = "10.8.1.6"

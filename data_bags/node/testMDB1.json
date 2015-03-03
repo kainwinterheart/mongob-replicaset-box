@@ -12,7 +12,10 @@
         "replicaset_name": "rs0",
         "is_replicaset": true,
         "is_shard": true,
-        "shard_name": "sh0"
+        "shard_name": "sh0",
+        "config": {
+            "replSet": "rs0"
+        }
     }
   },
   "chef_type": "node",

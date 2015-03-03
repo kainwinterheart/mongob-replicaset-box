@@ -9,9 +9,7 @@
     "fqdn": "testMDB4",
       "mongodb": {
         "cluster_name": "testMDB",
-        "replicaset_name": "testMDB",
-        "is_configserver": true,
-        "shard_name": "testMDB"
+        "is_configserver": true
     }
   },
   "chef_type": "node",
