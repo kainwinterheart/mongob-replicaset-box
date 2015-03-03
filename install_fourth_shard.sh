@@ -11,6 +11,8 @@ vagrant ssh "mongos" -c '/vagrant/add_shard_tags.sh' &&
 
 vagrant up "sh3-master" &&
 
+sleep 10 &&
+
 vagrant ssh "mongos" -c '/vagrant/add_fourth_shard.sh' &&
 
 exit 0;
