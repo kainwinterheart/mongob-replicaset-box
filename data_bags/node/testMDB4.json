@@ -9,7 +9,8 @@
     "fqdn": "testMDB4",
       "mongodb": {
         "cluster_name": "testMDB",
-        "is_configserver": true
+        "is_configserver": true,
+        "configserver_url": "testMDB4"
     }
   },
   "chef_type": "node",
