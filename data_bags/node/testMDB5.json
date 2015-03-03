@@ -8,7 +8,265 @@
   "normal": {
     "fqdn": "testMDB5",
       "mongodb": {
-        "cluster_name": "testMDB"
+        "cluster_name": "testMDB",
+        "sharded_collections": {
+            "moddb.mod_banners": { "uid": "hashed" },
+            "moddb.mod_phrases": { "uid": "hashed" },
+            "moddb.mod_sitelinks_sets": { "uid": "hashed" },
+            "moddb.mod_contactinfo": { "uid": "hashed" },
+            "moddb.mod_icons": { "uid": "hashed" }
+        },
+        "create_indexes": {
+            "moddb.mod_banners": [
+                {
+                    "key": "ss",
+                    "name": "ss_1",
+                    "background": true,
+                    "sparse": true,
+                    "unique": false,
+                    "dropDups": false
+                },
+                {
+                    "key": "tm",
+                    "name": "tm_1",
+                    "background": true,
+                    "sparse": true,
+                    "unique": false,
+                    "dropDups": false
+                },
+                {
+                    "key": "hm",
+                    "name": "hm_1",
+                    "background": true,
+                    "sparse": true,
+                    "unique": false,
+                    "dropDups": false
+                },
+                {
+                    "key": {
+                        "b": 1,
+                        "n": 1
+                    },
+                    "name": "b_1_n_1",
+                    "background": true,
+                    "sparse": true,
+                    "unique": false,
+                    "dropDups": false
+                },
+                {
+                    "key": {
+                        "c": 1,
+                        "n": 1
+                    },
+                    "name": "c_1_n_1",
+                    "background": true,
+                    "sparse": true,
+                    "unique": false,
+                    "dropDups": false
+                },
+                {
+                    "key": {
+                        "p": 1,
+                        "n": 1
+                    },
+                    "name": "p_1_n_1",
+                    "background": true,
+                    "sparse": true,
+                    "unique": false,
+                    "dropDups": false
+                }
+            ],
+            "moddb.mod_phrases": [
+                {
+                    "key": "ss",
+                    "name": "ss_1",
+                    "background": true,
+                    "sparse": true,
+                    "unique": false,
+                    "dropDups": false
+                },
+                {
+                    "key": "tm",
+                    "name": "tm_1",
+                    "background": true,
+                    "sparse": true,
+                    "unique": false,
+                    "dropDups": false
+                },
+                {
+                    "key": {
+                        "b": 1,
+                        "n": 1
+                    },
+                    "name": "b_1_n_1",
+                    "background": true,
+                    "sparse": true,
+                    "unique": false,
+                    "dropDups": false
+                },
+                {
+                    "key": {
+                        "c": 1,
+                        "n": 1
+                    },
+                    "name": "c_1_n_1",
+                    "background": true,
+                    "sparse": true,
+                    "unique": false,
+                    "dropDups": false
+                },
+                {
+                    "key": {
+                        "p": 1,
+                        "n": 1
+                    },
+                    "name": "p_1_n_1",
+                    "background": true,
+                    "sparse": true,
+                    "unique": false,
+                    "dropDups": false
+                }
+            ],
+            "moddb.mod_sitelinks_sets": [
+                {
+                    "key": "ss",
+                    "name": "ss_1",
+                    "background": true,
+                    "sparse": true,
+                    "unique": false,
+                    "dropDups": false
+                },
+                {
+                    "key": "tm",
+                    "name": "tm_1",
+                    "background": true,
+                    "sparse": true,
+                    "unique": false,
+                    "dropDups": false
+                },
+                {
+                    "key": {
+                        "b": 1,
+                        "n": 1
+                    },
+                    "name": "b_1_n_1",
+                    "background": true,
+                    "sparse": true,
+                    "unique": false,
+                    "dropDups": false
+                },
+                {
+                    "key": {
+                        "c": 1,
+                        "n": 1
+                    },
+                    "name": "c_1_n_1",
+                    "background": true,
+                    "sparse": true,
+                    "unique": false,
+                    "dropDups": false
+                }
+            ],
+            "moddb.mod_contactinfo": [
+                {
+                    "key": "ss",
+                    "name": "ss_1",
+                    "background": true,
+                    "sparse": true,
+                    "unique": false,
+                    "dropDups": false
+                },
+                {
+                    "key": "tm",
+                    "name": "tm_1",
+                    "background": true,
+                    "sparse": true,
+                    "unique": false,
+                    "dropDups": false
+                },
+                {
+                    "key": {
+                        "b": 1,
+                        "n": 1
+                    },
+                    "name": "b_1_n_1",
+                    "background": true,
+                    "sparse": true,
+                    "unique": false,
+                    "dropDups": false
+                },
+                {
+                    "key": {
+                        "c": 1,
+                        "n": 1
+                    },
+                    "name": "c_1_n_1",
+                    "background": true,
+                    "sparse": true,
+                    "unique": false,
+                    "dropDups": false
+                },
+                {
+                    "key": {
+                        "cp": 1,
+                        "_id": 1
+                    },
+                    "name": "cp_1__id_1",
+                    "background": true,
+                    "sparse": true,
+                    "unique": false,
+                    "dropDups": false
+                }
+            ],
+            "moddb.mod_icons": [
+                {
+                    "key": "ss",
+                    "name": "ss_1",
+                    "background": true,
+                    "sparse": true,
+                    "unique": false,
+                    "dropDups": false
+                },
+                {
+                    "key": "tm",
+                    "name": "tm_1",
+                    "background": true,
+                    "sparse": true,
+                    "unique": false,
+                    "dropDups": false
+                },
+                {
+                    "key": {
+                        "b": 1,
+                        "n": 1
+                    },
+                    "name": "b_1_n_1",
+                    "background": true,
+                    "sparse": true,
+                    "unique": false,
+                    "dropDups": false
+                },
+                {
+                    "key": {
+                        "c": 1,
+                        "n": 1
+                    },
+                    "name": "c_1_n_1",
+                    "background": true,
+                    "sparse": true,
+                    "unique": false,
+                    "dropDups": false
+                },
+                {
+                    "key": "source_ref",
+                    "name": "source_ref_1",
+                    "background": true,
+                    "sparse": true,
+                    "unique": false,
+                    "dropDups": false
+                }
+            ]
+        }
     }
   },
   "chef_type": "node",
