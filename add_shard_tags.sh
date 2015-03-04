@@ -1,17 +1,23 @@
 #!/bin/sh
 
 MONGO="/usr/bin/mongo"
-MIN_VALUE=0
-MAX_VALUE=`perl -Mbignum -e 'print 2 ** 63 - 1'`
 
 echo "
-sh.addShardTag(\"rs0\", \"ALL\");
-sh.addShardTag(\"rs1\", \"ALL\");
-sh.addShardTag(\"rs2\", \"ALL\");
-sh.addTagRange(\"moddb.mod_banners\", { u: ${MIN_VALUE} }, { u: ${MAX_VALUE} }, \"ALL\");
-sh.addTagRange(\"moddb.mod_phrases\", { u: ${MIN_VALUE} }, { u: ${MAX_VALUE} }, \"ALL\");
-sh.addTagRange(\"moddb.mod_sitelinks_sets\", { u: ${MIN_VALUE} }, { u: ${MAX_VALUE} }, \"ALL\");
-sh.addTagRange(\"moddb.mod_contactinfo\", { u: ${MIN_VALUE} }, { u: ${MAX_VALUE} }, \"ALL\");
-sh.addTagRange(\"moddb.mod_icons\", { u: ${MIN_VALUE} }, { u: ${MAX_VALUE} }, \"ALL\");
+[ 0, 1, 2 ].forEach(function(el) {
+
+    var name = 'rs' + el;
+
+    sh.addShardTag(name, 'ALL');
+    sh.addShardTag(name, 'NONE');
+});
+
+[ 'banners', 'phrases', 'sitelinks_sets', 'contactinfo', 'icons' ].forEach(function(el) {
+
+    var ns = 'moddb.mod_' + el;
+
+    sh.addTagRange(ns, { u: MinKey }, { u: NumberLong( -1 ) }, 'ALL');
+    sh.addTagRange(ns, { u: NumberLong( 1 ) }, { u: MaxKey }, 'ALL');
+    sh.addTagRange(ns, { u: NumberLong( -1 ) }, { u: NumberLong( 1 ) }, 'NONE');
+});
 " | $MONGO
 
