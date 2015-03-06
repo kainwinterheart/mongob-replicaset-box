@@ -14,6 +14,7 @@ done
 vagrant ssh "mongos" -c '
 /vagrant/stop_balancer.sh ;
 /vagrant/insert_1.sh ;
+/vagrant/create_unsharded_collections.sh ;
 /vagrant/add_shard_tags.sh ;
 ' >> ${LOG} &&
 
@@ -33,6 +34,10 @@ sleep 10 &&
 vagrant ssh "mongos" -c '
 /vagrant/add_fourth_shard.sh ;
 /vagrant/insert_2.sh ;
+' >> ${LOG} &&
+
+vagrant ssh "sh3-master" -c '
+/vagrant/create_collections.sh ;
 ' >> ${LOG} || exit 1
 
 for shard_name in "sh0-master" "sh1-master" "sh2-master" "sh3-master"
@@ -43,17 +48,17 @@ do
 ' >> ${LOG} || exit 1
 done
 
-echo "start & stop balancer" >> ${LOG}
-
-vagrant ssh "mongos" -c '
-/vagrant/start_balancer.sh ;
-' >> ${LOG} &&
-
-sleep 60 &&
-
-vagrant ssh "mongos" -c '
-/vagrant/stop_balancer.sh ;
-' >> ${LOG} &&
+# echo "start & stop balancer" >> ${LOG}
+# 
+# vagrant ssh "mongos" -c '
+# /vagrant/start_balancer.sh ;
+# ' >> ${LOG} &&
+# 
+# sleep 60 &&
+# 
+# vagrant ssh "mongos" -c '
+# /vagrant/stop_balancer.sh ;
+# ' >> ${LOG} &&
 
 vagrant ssh "mongos" -c '
 /vagrant/insert_3.sh ;
