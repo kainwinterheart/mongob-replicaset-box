@@ -11,5 +11,11 @@ use moddb;
 
     db.createCollection(ns);
 });
-" | $MONGO
 
+[ 'banners', 'groups', 'files' ].forEach(function(el) {
+
+    var ns = 'mod_media_' + el;
+
+    db.createCollection(ns);
+});
+" | $MONGO

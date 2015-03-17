@@ -14,7 +14,10 @@
             "moddb.mod_phrases": { "u": "hashed" },
             "moddb.mod_sitelinks_sets": { "u": "hashed" },
             "moddb.mod_contactinfo": { "u": "hashed" },
-            "moddb.mod_icons": { "u": "hashed" }
+            "moddb.mod_icons": { "u": "hashed" },
+            "moddb.mod_media_banners": { "cid": "hashed" },
+            "moddb.mod_media_groups": { "cid": "hashed" },
+            "moddb.mod_media_files": { "md5": 1 }
         },
         "create_indexes": {
             "moddb.mod_banners": [
@@ -260,6 +263,34 @@
                 {
                     "key": "source_ref",
                     "name": "source_ref_1",
+                    "background": true,
+                    "sparse": true,
+                    "unique": false,
+                    "dropDups": false
+                }
+            ],
+            "moddb.mod_media_banners": [
+                {
+                    "key": "mbid",
+                    "name": "mbid_1",
+                    "background": true,
+                    "sparse": true,
+                    "unique": false,
+                    "dropDups": false
+                },
+                {
+                    "key": "mgid",
+                    "name": "mgid_1",
+                    "background": true,
+                    "sparse": true,
+                    "unique": false,
+                    "dropDups": false
+                }
+            ],
+            "moddb.mod_media_groups": [
+                {
+                    "key": "mgid",
+                    "name": "mgid_1",
                     "background": true,
                     "sparse": true,
                     "unique": false,
