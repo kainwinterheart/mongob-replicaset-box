@@ -49,13 +49,13 @@ do
 done
 
 # echo "start & stop balancer" >> ${LOG}
-# 
+#
 # vagrant ssh "mongos" -c '
 # /vagrant/start_balancer.sh ;
 # ' >> ${LOG} &&
-# 
+#
 # sleep 60 &&
-# 
+#
 # vagrant ssh "mongos" -c '
 # /vagrant/stop_balancer.sh ;
 # ' >> ${LOG} &&
@@ -72,5 +72,30 @@ do
 ' >> ${LOG} || exit 1
 done
 
-exit 0;
+echo "vagrant up sh4-master" >> ${LOG}
+vagrant up "sh4-master" &&
 
+sleep 10 &&
+
+vagrant ssh "mongos" -c '
+/vagrant/add_fifth_shard.sh ;
+/vagrant/insert_4.sh ;
+' >> ${LOG} &&
+
+vagrant ssh "sh4-master" -c '
+/vagrant/create_collections.sh ;
+' >> ${LOG} &&
+
+vagrant ssh "mongos" -c '
+/vagrant/insert_5.sh ;
+' >> ${LOG} || exit 1
+
+for shard_name in "sh0-master" "sh1-master" "sh2-master" "sh3-master" "sh4-master"
+do
+    echo "===> ${shard_name} <===" >> ${LOG}
+    vagrant ssh "${shard_name}" -c '
+/vagrant/select.sh ;
+' >> ${LOG} || exit 1
+done
+
+exit 0;
